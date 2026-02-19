@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SheSolar Innovation & Technology | Empowering Women in Solar & Renewables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Women-led platform empowering African women with skills, mentorship, and opportunities in solar energy, renewables, and clean technology.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #ff8c00;         /* Logo orange – main action color */
+            --primary-dark: #e67e22;    /* Hover/darken */
+            --primary-light: #fff0e0;   /* Subtle background tint */
+            --secondary: #27ae60;       /* Supporting green */
+            --dark: #1e3a5f;            /* Deep navy for text/footer */
+            --light: #fffaf0;           /* Warm light bg */
+            --glow: rgba(255, 140, 0, 0.45); /* Orange glow */
+            --shadow: 0 10px 30px rgba(255, 140, 0, 0.12);
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Navbar – Single line with colored background */
+        .navbar {
+            background: #fff5eb; /* Warm orange-tinted white – matches logo */
+            box-shadow: 0 4px 20px rgba(255,140,0,0.12);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: #ffffff !important;
+            box-shadow: 0 6px 25px rgba(255,140,0,0.18) !important;
+        }
+
+        .navbar-brand img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.4s ease;
+            margin-right: 1rem;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.08);
+            filter: drop-shadow(0 6px 15px rgba(255,140,0,0.35));
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--dark) !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 60%;
+        }
+
+        /* Hero Carousel */
+        .carousel-item {
+            min-height: 90vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-caption {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 15px;
+        }
+
+        .anime-glow {
+            animation: glow 4s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 15px rgba(255,140,0,0.5); }
+            to   { text-shadow: 0 0 35px rgba(255,140,0,0.8); }
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 0;
+        }
+
+        /* Cards & Images */
+        .card, .img-fluid.rounded.shadow-lg {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+        }
+
+        .card:hover, .img-fluid.rounded.shadow-lg:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .icon-circle {
+            width: 90px;
+            height: 90px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.4rem;
+            box-shadow: 0 8px 25px rgba(255,140,0,0.35);
+            transition: all 0.3s;
+        }
+
+        .card:hover .icon-circle {
+            transform: scale(1.12) rotate(8deg);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 2.2rem;
+            font-weight: 600;
+            transition: all 0.35s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(255,140,0,0.4);
+        }
+
+        .btn-outline-light {
+            border-color: white;
+            color: white;
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #e0e0ff;
+            padding: 5rem 0 3rem;
+        }
+
+        footer .lead {
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+
+        footer img {
+            max-height: 100px;
+            transition: transform 0.4s;
+        }
+
+        footer img:hover {
+            transform: scale(1.08);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .navbar-brand img { height: 60px; }
+        }
+
+        @media (max-width: 768px) {
+            .display-3 { font-size: 2.8rem; }
+            .lead { font-size: 1.25rem; }
+            .carousel-item { min-height: 70vh; }
+        }
+
+        /* Gallery & other existing styles remain unchanged below */
+        .gallery-item {
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(255, 140, 0, 0.18);
+        }
+
+        .gallery-overlay {
+            background: rgba(30, 58, 95, 0.45);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: transparent;
+        }
+
+        .modal-body img {
+            border-radius: 16px;
+        }
+
+        .program-card {
+            background: white;
+            transition: all 0.35s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(255, 140, 0, 0.18);
+            border-color: rgba(255, 140, 0, 0.3);
+        }
+
+        .program-card .icon-circle {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover .icon-circle {
+            transform: scale(1.15);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.3);
+        }
+
+        .contact-card,
+        .contact-info-card {
+            transition: all 0.4s ease;
+            background: white;
+        }
+
+        .contact-card:hover,
+        .contact-info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px rgba(255, 140, 0, 0.18);
+            border-color: rgba(255, 140, 0, 0.25);
+        }
+
+        .icon-circle-small {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .form-floating > label {
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar – Logo + Menu in One Line + Colored Background -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+        <!-- Logo + Brand -->
+        <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+            <img src="/shesola logo 2.png"
+                 alt="SheSolar Innovation & Technology Logo"
+                 style="height: 70px; width: auto; object-fit: contain;">
+            <span class="d-none d-lg-inline fs-4 ms-2" style="color: var(--primary);"></span>
+        </a>
+
+        <!-- Toggler for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu Items + CTA -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto align-items-center">
+                <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#programs">Programs</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#community">Community</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#partners">Partners</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#media">Media</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Join Now Button -->
+            <a href="#contact" class="btn btn-primary ms-lg-3 px-4 py-2 rounded-pill fw-bold d-none d-lg-inline">
+                Join Now
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Slider -->
+<section id="home" class="position-relative overflow-hidden" style="min-height: 90vh;">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('https://thumbs.dreamstime.com/b/black-woman-engineer-plant-solar-panel-eco-friendly-environment-sustainable-future-city-portrait-innovation-334043071.jpg') center/cover no-repeat;">
+                <div class="d-flex align-items-center justify-content-center h-100 text-center text-white">
+                    <div class="container py-5 position-relative z-2">
+                        <h1 class="display-3 fw-bold mb-3 anime-glow" style="color: white !important; text-shadow: 0 4px 16px rgba(0,0,0,0.8);">
+                            Her Energy. Her Future.
+                        </h1>
+                        <p class="lead fs-4 mb-5" style="max-width: 800px; margin: 0 auto;">
+                            Empowering African women to lead in solar energy, innovation, and the clean energy transition.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center gap-4">
+                            <a href="#community" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg fw-bold">Join the Movement</a>
+                            <a href="#partners" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill border-2 fw-bold">Partner With Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item h-100" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('https://www.techinafrica.com/wp-content/uploads/2025/01/image_77153cda886492412e6f93bc9fa29cea-scaled.jpg') center/cover no-repeat;">
+                <div class="d-flex align-items-center justify-content-center h-100 text-center text-white">
+                    <div class="container py-5 position-relative z-2">
+                        <h1 class="display-3 fw-bold mb-3 anime-glow" style="color: white !important; text-shadow: 0 4px 16px rgba(0,0,0,0.8);">
+                            Her Energy. Her Future.
+                        </h1>
+                        <p class="lead fs-4 mb-5" style="max-width: 800px; margin: 0 auto;">
+                            Building skills, networks, and leadership for women in renewable energy across Africa.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center gap-4">
+                            <a href="#community" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg fw-bold">Join the Movement</a>
+                            <a href="#partners" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill border-2 fw-bold">Partner With Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item h-100" style="background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('https://eu-images.contentstack.com/v3/assets/blta47798dd33129a0c/bltd38f976c9d557706/66d1ec9c9ba222ff24cb2b0a/783409-7751.jpg') center/cover no-repeat;">
+                <div class="d-flex align-items-center justify-content-center h-100 text-center text-white">
+                    <div class="container py-5 position-relative z-2">
+                        <h1 class="display-3 fw-bold mb-3 anime-glow" style="color: white !important; text-shadow: 0 4px 16px rgba(0,0,0,0.8);">
+                            Her Energy. Her Future.
+                        </h1>
+                        <p class="lead fs-4 mb-5" style="max-width: 800px; margin: 0 auto;">
+                            Women leading innovation, entrepreneurship, and sustainable change in clean technology.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center gap-4">
+                            <a href="#community" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg fw-bold">Join the Movement</a>
+                            <a href="#partners" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill border-2 fw-bold">Partner With Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!-- Who We Are -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="display-5 section-title">Who We Are</h2>
+        </div>
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" 
+                     alt="African women working on solar panels" 
+                     class="img-fluid rounded shadow-lg">
+            </div>
+            <div class="col-lg-6">
+                <p class="lead">SheSolar Innovation & Technology is more than an organization — it is a platform, a community, and a network dedicated to empowering women in solar energy, renewable energy, and technology.</p>
+                <p>Founded on real industry experience, SheSolar exists to bridge the gender gap in technical expertise, leadership representation, and business opportunities within the clean energy ecosystem.</p>
+
+                <h3 class="mt-5 fw-bold">What We Do</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-check-circle me-3" style="color:var(--primary)"></i>Skills Development & Training</li>
+                    <li class="mb-3"><i class="fas fa-check-circle me-3" style="color:var(--primary)"></i>Community & Networking</li>
+                    <li class="mb-3"><i class="fas fa-check-circle me-3" style="color:var(--primary)"></i>Business & Career Support</li>
+                    <li><i class="fas fa-check-circle me-3" style="color:var(--primary)"></i>Advocacy & Innovation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why It Matters -->
+<section class="py-5" style="background: var(--primary-light);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="display-5 section-title">Why It Matters</h2>
+        </div>
+        <p class="lead text-center mb-5">The global transition to clean energy presents enormous opportunities — yet women remain underrepresented in technical and leadership roles.</p>
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <div class="card h-100 p-4">
+                    <div class="icon-circle"><i class="fas fa-female"></i></div>
+                    <h5>Increasing women’s participation in renewable energy</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 p-4">
+                    <div class="icon-circle"><i class="fas fa-hand-holding-dollar"></i></div>
+                    <h5>Creating economic empowerment opportunities</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 p-4">
+                    <div class="icon-circle"><i class="fas fa-globe-africa"></i></div>
+                    <h5>Supporting sustainable development</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 p-4">
+                    <div class="icon-circle"><i class="fas fa-lightbulb"></i></div>
+                    <h5>Building future energy leaders</h5>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="#community" class="btn btn-primary btn-lg px-5">Become Part of the Movement</a>
+        </div>
+    </div>
+</section>
+
+<!-- About – Redesigned -->
+<section id="about" class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--dark);">About SheSolar</h2>
+            <p class="lead text-muted mx-auto" style="max-width: 760px;">
+                SheSolar Innovation & Technology is a women-led initiative dedicated to empowering African women through solar energy, renewable energy, technology, and innovation.
+            </p>
+        </div>
+
+        <div class="row g-4 g-lg-5 mb-5">
+            <div class="col-lg-6">
+                <div class="about-card h-100 p-4 p-lg-5 shadow-sm border border-light rounded-4 transition-all">
+                    <h4 class="fw-bold mb-4" style="color: var(--primary);">Our Vision</h4>
+                    <p class="text-muted mb-4">
+                        A future where women actively lead in renewable energy, technology innovation, and sustainable development — building businesses, creating jobs, influencing policy, and shaping the global energy landscape.
+                    </p>
+
+                    <h4 class="fw-bold mb-4 mt-5" style="color: var(--primary);">Our Mission</h4>
+                    <p class="text-muted">
+                        To empower women with the skills, knowledge, support systems, and opportunities needed to succeed and lead in solar energy, renewable energy, and clean technology.
+                    </p>
+
+                    <div class="mt-4">
+                        <a href="#community" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill transition-all">
+                            Join Our Vision <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="about-card h-100 p-4 p-lg-5 shadow-sm border border-light rounded-4 transition-all">
+                    <h4 class="fw-bold mb-4" style="color: var(--primary);">Our Core Values</h4>
+                    <ul class="list-unstyled values-list">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle me-3 mt-1" style="color: var(--primary); font-size: 1.3rem;"></i>
+                            <div>
+                                <strong>Empowerment:</strong> Equipping women with practical tools for success.
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle me-3 mt-1" style="color: var(--primary); font-size: 1.3rem;"></i>
+                            <div>
+                                <strong>Integrity:</strong> Operating with professionalism, transparency, and excellence.
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle me-3 mt-1" style="color: var(--primary); font-size: 1.3rem;"></i>
+                            <div>
+                                <strong>Innovation:</strong> Encouraging creative solutions and forward thinking.
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-check-circle me-3 mt-1" style="color: var(--primary); font-size: 1.3rem;"></i>
+                            <div>
+                                <strong>Sisterhood:</strong> Building strong networks of collaboration and support.
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <i class="fas fa-check-circle me-3 mt-1" style="color: var(--primary); font-size: 1.3rem;"></i>
+                            <div>
+                                <strong>Impact:</strong> Driving meaningful social, economic, and environmental change.
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-5">
+                        <a href="#contact" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill transition-all">
+                            Get Involved <i class="fas fa-handshake ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9">
+                <div class="founder-card text-center p-5 p-lg-6 shadow border border-light rounded-4 transition-all">
+                    <div class="mb-4">
+                        <i class="fas fa-quote-left fa-3x" style="color: var(--primary); opacity: 0.15;"></i>
+                    </div>
+                    <h4 class="fw-bold mb-4" style="color: var(--primary);">Founder's Message</h4>
+                    <p class="fst-italic lead mb-4" style="font-size: 1.25rem; line-height: 1.6;">
+                        "SheSolar was born from real industry experience — recognizing both the immense potential women bring to renewable energy and the barriers many still face. Our goal is simple yet powerful: create opportunities, open doors, and build a future where women confidently lead in the global energy transformation."
+                    </p>
+                    <p class="fw-bold mb-0" style="font-size: 1.15rem;">
+                        — Florence S. Obiyo<br>
+                        <span class="text-muted">Founder, SheSolar Innovation & Technology</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--dark);">Our Impact in Action</h2>
+            <p class="lead text-muted mx-auto" style="max-width: 720px;">
+                See the women of SheSolar leading, learning, innovating, and powering change across Africa.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-item position-relative overflow-hidden rounded-4 shadow-sm transition-all">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" 
+                         alt="Women installing solar panels" 
+                         class="img-fluid w-100" 
+                         style="height: 320px; object-fit: cover;">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white opacity-0 transition-all">
+                        <div class="text-center">
+                            <h5 class="fw-bold mb-2">Training & Installation</h5>
+                            <p class="small mb-0">Hands-on solar skills workshops</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-link stretched-link" data-bs-toggle="modal" data-bs-target="#galleryModal1"></button>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-item position-relative overflow-hidden rounded-4 shadow-sm transition-all">
+                    <img src="https://www.techinafrica.com/wp-content/uploads/2025/01/image_77153cda886492412e6f93bc9fa29cea-scaled.jpg" 
+                         alt="Group of women engineers" 
+                         class="img-fluid w-100" 
+                         style="height: 320px; object-fit: cover;">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white opacity-0 transition-all">
+                        <div class="text-center">
+                            <h5 class="fw-bold mb-2">Community Empowerment</h5>
+                            <p class="small mb-0">Building networks & leadership</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-link stretched-link" data-bs-toggle="modal" data-bs-target="#galleryModal2"></button>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="gallery-item position-relative overflow-hidden rounded-4 shadow-sm transition-all">
+                    <img src="https://thumbs.dreamstime.com/b/african-american-technician-check-maintenance-solar-panels-group-three-black-engineers-meeting-solar-station-211456077.jpg" 
+                         alt="Women discussing solar project" 
+                         class="img-fluid w-100" 
+                         style="height: 320px; object-fit: cover;">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center text-white opacity-0 transition-all">
+                        <div class="text-center">
+                            <h5 class="fw-bold mb-2">Innovation & Advocacy</h5>
+                            <p class="small mb-0">Leading the clean energy future</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-link stretched-link" data-bs-toggle="modal" data-bs-target="#galleryModal3"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="#contact" class="btn btn-primary btn-lg px-5 rounded-pill shadow transition-all fw-bold">
+                Partner With Us <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Modals -->
+<div class="modal fade" id="galleryModal1" tabindex="-1" aria-labelledby="galleryModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4 overflow-hidden border-0 shadow-5">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" 
+                     alt="Women installing solar panels" 
+                     class="img-fluid w-100">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="galleryModal2" tabindex="-1" aria-labelledby="galleryModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4 overflow-hidden border-0 shadow-5">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <img src="https://www.techinafrica.com/wp-content/uploads/2025/01/image_77153cda886492412e6f93bc9fa29cea-scaled.jpg" 
+                     alt="Group of women engineers" 
+                     class="img-fluid w-100">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Programs -->
+<section id="programs" class="py-5 position-relative overflow-hidden" style="background: var(--light);">
+    <div class="position-absolute top-0 start-0 w-100 h-100" 
+         style="background: url('/img/about us.jpeg') center/cover no-repeat; opacity: 0.12; z-index: 0; pointer-events: none;">
+    </div>
+
+    <div class="container position-relative" style="z-index: 1;">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--dark);">Our Programs & Initiatives</h2>
+            <p class="lead text-muted mx-auto" style="max-width: 760px;">
+                SheSolar focuses on practical empowerment through structured initiatives designed to support women at different stages of their clean energy journey.
+            </p>
+        </div>
+
+        <div class="row g-4 g-lg-5">
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card text-center h-100 p-4 p-lg-5 rounded-4 shadow-sm transition-all border border-light">
+                    <div class="icon-circle mb-4 mx-auto" style="background: var(--primary);">
+                        <i class="fas fa-solar-panel fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: var(--dark);">Solar & Renewable Energy Training</h5>
+                    <p class="text-muted mb-4 small">
+                        Technical installation skills, system design knowledge, and hands-on industry exposure.
+                    </p>
+                    <a href="#contact" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill transition-all">
+                        Explore <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card text-center h-100 p-4 p-lg-5 rounded-4 shadow-sm transition-all border border-light">
+                    <div class="icon-circle mb-4 mx-auto" style="background: var(--primary);">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: var(--dark);">Business & Entrepreneurship Support</h5>
+                    <p class="text-muted mb-4 small">
+                        Guidance on starting and growing energy-related businesses, marketing, sourcing, and partnerships.
+                    </p>
+                    <a href="#contact" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill transition-all">
+                        Explore <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card text-center h-100 p-4 p-lg-5 rounded-4 shadow-sm transition-all border border-light">
+                    <div class="icon-circle mb-4 mx-auto" style="background: var(--primary);">
+                        <i class="fas fa-user-graduate fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: var(--dark);">Mentorship & Leadership Development</h5>
+                    <p class="text-muted mb-4 small">
+                        Connecting women with experienced professionals for career growth and leadership advancement.
+                    </p>
+                    <a href="#contact" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill transition-all">
+                        Explore <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card text-center h-100 p-4 p-lg-5 rounded-4 shadow-sm transition-all border border-light">
+                    <div class="icon-circle mb-4 mx-auto" style="background: var(--primary);">
+                        <i class="fas fa-bullhorn fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3" style="color: var(--dark);">Community Engagement & Advocacy</h5>
+                    <p class="text-muted mb-4 small">
+                        Promoting female participation in renewable energy policy, innovation, and industry leadership.
+                    </p>
+                    <a href="#contact" class="btn btn-outline-primary btn-sm px-4 py-2 rounded-pill transition-all">
+                        Explore <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Community -->
+<section id="community" class="py-5">
+    <div class="container text-center">
+        <div class="section-header">
+            <h2 class="display-5 section-title">Join the SheSolar Community</h2>
+        </div>
+        <p class="lead mb-4">SheSolar is a growing network of women passionate about clean energy, technology, entrepreneurship, and sustainable development.</p>
+        <p class="mb-4 fw-bold">Membership Benefits: Training • Networking • Mentorship • Business exposure • Leadership development</p>
+        <p class="fs-4 fw-bold mb-5">Together, we are shaping the future of energy.</p>
+        <a href="#contact" class="btn btn-primary btn-lg px-5">Become a Member Today</a>
+    </div>
+</section>
+
+<!-- Partners -->
+<section id="partners" class="py-5" style="background: var(--primary-light);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="display-5 section-title">Partner With SheSolar</h2>
+        </div>
+        <p class="lead text-center mb-5">Partnering with SheSolar means investing in sustainable development, women empowerment, clean energy adoption, future workforce development, and innovation.</p>
+        
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h4 class="fw-bold">Why Partner With Us</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-check me-3" style="color:var(--primary)"></i>Impact Visibility</li>
+                    <li class="mb-3"><i class="fas fa-check me-3" style="color:var(--primary)"></i>Brand Alignment</li>
+                    <li class="mb-3"><i class="fas fa-check me-3" style="color:var(--primary)"></i>Market Access</li>
+                    <li><i class="fas fa-check me-3" style="color:var(--primary)"></i>Corporate Social Responsibility</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <h4 class="fw-bold">Partnership Opportunities</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-handshake me-3" style="color:var(--primary)"></i>Strategic Partnerships</li>
+                    <li class="mb-3"><i class="fas fa-calendar-check me-3" style="color:var(--primary)"></i>Event Sponsorship</li>
+                    <li class="mb-3"><i class="fas fa-tools me-3" style="color:var(--primary)"></i>Training & Capacity Building Support</li>
+                    <li><i class="fas fa-bullhorn me-3" style="color:var(--primary)"></i>Media & Brand Collaborations</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Media -->
+<section id="media" class="py-5">
+    <div class="container text-center">
+        <div class="section-header">
+            <h2 class="display-5 section-title">Insights & Updates</h2>
+        </div>
+        <p class="lead mb-5">Stay informed about renewable energy developments, women leadership stories, industry insights, SheSolar programs, and community activities.</p>
+        <a href="#" class="btn btn-outline-primary btn-lg px-5">Visit Our Blog/Media Page</a>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--dark);">Get in Touch</h2>
+            <p class="lead text-muted mx-auto" style="max-width: 720px;">
+                We'd love to hear from you. Whether you're interested in joining, partnering, or have questions — reach out today.
+            </p>
+        </div>
+
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="contact-card shadow-lg p-5 rounded-4 transition-all bg-white border border-light">
+                    <h4 class="fw-bold mb-4 text-center text-lg-start" style="color: var(--primary);">Send Us a Message</h4>
+                    
+                    <form id="contact-form">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="message" placeholder="Your Message" style="height: 160px;" required></textarea>
+                                    <label for="message">Your Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center text-lg-start">
+                                <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow transition-all fw-bold" id="submit-btn">
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="form-status" class="mt-4 text-center fw-medium" style="min-height: 24px;"></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="contact-info-card p-5 rounded-4 shadow-sm bg-white border border-light transition-all h-100 d-flex flex-column justify-content-center">
+                    <h4 class="fw-bold mb-4" style="color: var(--primary);">Reach Out Directly</h4>
+                    
+                    <div class="d-flex align-items-start gap-4 mb-4">
+                        <div class="icon-circle-small flex-shrink-0" style="background: var(--primary);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Email Us</h6>
+                            <p class="mb-0">
+                                <a href="mailto:shesolarinnovation@gmail.com" class="text-decoration-none fs-5" style="color: var(--primary);">
+                                    shesolarinnovation@gmail.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto text-center text-lg-start">
+                        <p class="text-muted small mb-0">We typically respond within 24–48 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="container">
+        <p class="lead mb-2">Her Energy. Her Future.</p>
+        <p class="small">© 2026 SheSolar.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        emailjs.init("YOUR_PUBLIC_KEY"); // ← Replace with your EmailJS Public Key
+    })();
+</script>
+<script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const btn = document.getElementById('submit-btn');
+        const status = document.getElementById('form-status');
+
+        btn.disabled = true;
+        btn.innerHTML = 'Sending...';
+        status.innerHTML = '';
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+            .then(function(response) {
+                status.innerHTML = '<span style="color: #27ae60;">Message sent successfully! We\'ll get back to you soon.</span>';
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                status.innerHTML = '<span style="color: #dc3545;">Failed to send message. Please try again.</span>';
+                console.error('EmailJS error:', error);
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = 'Send Message';
+            });
+    });
+</script>
+
+<script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
